@@ -1,0 +1,174 @@
+ /* 1_menu */
+.menu{
+    display: flex;
+}
+.menu-item{
+    width: 25%;
+    /* flex-grow: 1; 로 해도 같은 결과값 */
+    background:gold;
+    transition: 0.5s;
+}
+.menu-item:hover{
+    background: crimson;
+    width: 35%;
+    /* flex-grow: 1.5; 로 해도 같은 결과값 */
+}
+.menu-link{
+    display: block;
+    /* 이 태그의 블록 아무데나 눌러도 링크랑 연결시켜줘야 하기 때문에 block으로 지정 */
+    padding: 1em;
+    /* 1em, 즉 내 폰트 사이즈만큼 패딩을 준다는 의미 */
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+    text-decoration: none;
+    text-align: center;
+}
+.menu-link:hover{
+    color: white;
+}
+
+/* 2_search */
+/* 부모  container에 flex를 주고, flex-item들이 된 자식들에게 height를 부여하면,
+align-items: strech 로 기본 지정되어 있기 때문에, 그 높이만큼 크기가 증가한다. */
+.search-form{
+    display: flex;
+}
+.search-form input[type='search']{
+    flex: 1;
+    height: 40px;
+    margin-right: 10px;
+    border: 0;
+    border-radius: 0.3em; 
+    /* 테두리를 둥글게 */
+    font-size: 1rem;
+}
+.search-form input[type='submit']{
+    width: 4em;
+    border: 0;
+    border-radius: 0.3em;
+    font-size: 1rem;
+    background:gold
+}
+
+/* 3_bullet list */
+
+/* margin: 한 개의 값은 모든 네 면의 여백을 설정.
+두 개의 값: 첫 번째는 위와 아래, 두 번째는 왼쪽과 오른쪽 여백
+세 개의 값: 첫 번째는 위, 두 번째는 왼쪽과 오른쪽, 세 번째 값은 아래 여백
+네 개의 값: 각각 상, 우, 하, 좌 순서로 여백(시계방향) */
+
+.info-list-item{
+    display: flex;
+    margin: 0.5em 0;
+}
+.info-list-item:before{
+    content: '→';
+    margin-right:0.5em;
+
+}
+
+/* 4_message list */
+
+/* 사진의 사이즈를 내 임맛에 맞게! 아주 유용한 정보!  background-size: cover로 해도 됨!*/
+.user-item{
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+.user-photo{
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    margin-right: 0.5em;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: gold;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 120%;
+}
+/* 
+5_user list */
+
+/* 말줌임표로 바뀌기 3개의 코드 세트임 */
+.friend-item{
+    align-items: center;
+}
+.user-name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 6_modal */
+.modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0%;
+    top: 0;
+    bottom: 0;
+    background:rgba(0,0,0,0.3);
+}
+
+.dialog{
+    width: 50vw;
+    padding: 2em;
+    border-radius: 1em;
+
+    background:white;
+
+}
+
+/* 7_card_list */
+
+/* 글자의 길이마다 크기가 달라서 안 예뻐 ->card-item 자체가 container로,
+direction을 column으로 줘서 위 아래로 자동으로 채우기(flex-grow) */
+.card-item{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+/* 반응형 박스를 만드는 손쉬운 방법! 세로 부분의 패딩을 이용해라 */
+.card-image{
+    height: 0;
+    padding-bottom: 60%;
+    background-color: lightgrey;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+/* 이 파트는 보이지 않게 하고 싶어 */
+.card-image img{
+    display: none;
+}
+/* 자신의 flex-basis 보다 큰 값이 오면 알아서 늘어나게! -> flex-grow */
+.card-desc{
+    flex:1 1 auto;
+    padding: 1em;
+    background-color: white;
+}
+/* 내 컨테이너 양 옆에 있는 마진이 지우고 싶다 -> container 자체에 - margin을 준다 */
+@media (min-width: 600px) {
+    .card-list-con{
+        overflow-x: hidden;
+    }
+    .card-list{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -1rem;
+    }
+    .card-item{
+        width: 50%;
+        padding: 0 1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-item{
+        width: 33.333333%;
+    }
+}
