@@ -1,0 +1,143 @@
+.header{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    height: 80px;
+    padding: 0 1rem;
+}
+
+/* display에 flex -> 제목과 검색창이 일자로 나란히 있었으면 해서
+align-itmes: center -> 수직축기준으로 정렬하기 위해(나란히 줄 맞춤)
+justify-content: space-between -> 가운에 사이 공백을 기준으로 나눠가지기 위해
+height -> header 파트의 높이 확보
+padding -> 좌우 0에 위 아래로 1rem */
+
+.search-form{
+    width: 300px;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: 3rem;
+}
+/* margin-right -> 깃발 들어갈 칸을 만들어 준 모습 */
+.primary{
+    padding: 1rem;
+}
+/* header와 padding을 맞춰주는 모습 */
+
+.secondary{
+    padding: 1rem;
+
+}
+.secondary-a{
+    background: white;
+}
+
+.secondary-b{
+    background: #666;
+    color: white;
+}
+
+.footer{
+    padding: 1rem;
+    border-top: 1px solid lightgray;
+    text-align: center;
+}
+.modal{
+    display: none;
+    top: 80px;
+}
+#modal-switch{
+    font-size: 2rem;
+}
+#modal-switch:checked ~ .modal{
+    display: flex;
+}
+
+label[for="modal-switch"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 1.3rem;
+    right: 1rem;
+    width: 40px;
+    height:40px;
+    cursor: pointer;
+}
+
+/* flex으로 설정하고, 좌우상하 정렬 다 center로 해주고
+position은 절대적으로 정해놓고, 크기를 주고 
+그 위치를 top, right로 지정해줌
+그리고 그 위치에 크기를 width, height로 지정해줌 */
+
+label[for="modal-switch"]:before{
+    content: "⚐";
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#modal-switch:checked ~label[for="modal-switch"]:before{
+    color: dodgerblue;
+}
+#modal-switch, label[for="modal-switch"] span{
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    top: 0;
+}
+
+/* overflow: hidden -> 컨텐츠가 너무 클 때 넘치는 부분 잘라버림 -> 1px로 크기를 조정해놔서
+                    어차피 넘어가버리니까 안 보이게 해주기
+position: absolute -> modal이 보이는 위치를 다른 컨텐츠들에게 영향 받지 않게
+opacity -> 투명도
+top -> modal이 뜨는 위치가 위에서 뜰거임 */
+
+
+/* 페이지가 커졌을 때 사이드바의 등장하기 위한 코드
+문제는? 축이 다르다. title, header 이런 데는 수평 축인데 밑에 content랑 secondary들은
+수직 축이다 -> 축이 여러개라 생각하지 말고, flexwrap 속성으로 넘치면 떨군다고 생각하자 */
+/* 
+컨테이너의 크기가 정해져 있다면 flex-grow 보다 width %를 부여하는 것이 좋다 */
+@media (min-width:1024px) {
+    .page{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .header{
+        width: 100%;
+    }
+    .menu{
+        width: 100%;
+    }
+    .primary{
+        order: 2;
+        width: 60%;
+    }
+    .secondary{
+        width: 20%;
+    }
+    .secondary-a{
+        order: 1;
+    }
+    .secondary-b{
+        order: 3;
+    }
+    
+    .footer{
+        order: 4;
+        width: 100%;
+    }
+}
+
+/* 사이즈가 더 커지면 양쪽의 secondary 들의 크기를 고정해주고 싶어 */
+
+@media (min-width:1400px) {
+    .primary{
+        width: calc(100% - 600px);
+    }
+    .secondary{
+        width: 300px;
+    }
+}
