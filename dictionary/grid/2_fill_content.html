@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <link rel="stylesheet" href="default.css">
+
+    <style>
+        .grid-container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(200px,auto));
+        }
+
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">a</div>
+        <div class="grid-item">b</div>
+        <div class="grid-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, illum? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore animi nemo facere ducimus laborum sit, eius modi quo dolore maxime accusantium minima similique optio odit illo illum ullam suscipit ex.</div>
+
+    </div>
+</body>
+</html>
+
+<!-- minmax(min값, content의 크기 따라 auto로 맞춰지는) 자주 쓰임
+auto-fill media 쿼리를 쓰지 않고도 사이즈가 줄면 칼럼수가 주는 반응형을 만들 수 있음
+만약 컨텐츠 크기가 적어서 페이지 사이즈를 넓혀도 더 안 커질 때 -> auto-fit사용 -->

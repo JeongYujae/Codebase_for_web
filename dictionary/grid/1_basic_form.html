@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        .grid-container{
+            display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2,1fr);
+        height: 80vh;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">a</div>
+        <div class="grid-item">b</div>
+        <div class="grid-item">c</div>
+        <div class="grid-item">d</div>
+        <div class="grid-item">e</div>
+        <div class="grid-item">f</div>
+        <div class="grid-item">g</div>
+        <div class="grid-item">h</div>
+    </div>
+</body>
+</html>
+
+<!-- 컨테이너 형태를 꽉 채워서 만드는 기능 있음
+repeat() / 각각에 px 이나 fr 로 크기 지정 가능
+fr은 flex처럼 줄어들고 px은 고정 -->

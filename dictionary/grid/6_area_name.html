@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <link rel="stylesheet" href="default.css">
+
+    <style>
+        .grid-container{
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-areas:
+                '. header header'
+                'sidebar-a main sidebar-b'
+                'footer footer footer';
+        }
+        .header{grid-area: header;}
+        .sidebar-a{grid-area: sidebar-a;}
+        .sidebar-b{grid-area: sidebar-b;}
+        .main{grid-area: main;}
+        .footer{grid-area: footer;}
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="header grid-item">Header</div>
+        <div class="sidebar-a grid-item">sidebar-a</div>
+        <div class="sidebar-b grid-item">sidebar-b</div>
+        <div class="main grid-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem doloremque quod, placeat quidem earum doloribus necessitatibus nesciunt veniam porro, ducimus atque. Mollitia dolor quod nisi nobis eveniet, iusto adipisci enim iure recusandae, cumque minima saepe ullam ea obcaecati! Repellat accusamus totam libero nisi odio, inventore quod necessitatibus! Laboriosam, eligendi. Libero neque quasi alias vel, eum illo quod, quia a voluptates earum inventore officiis cumque optio veniam magnam aliquam sit veritatis commodi consequatur ducimus enim! Aliquam deleniti, reiciendis pariatur iste rerum, molestias, error excepturi provident maxime magni dolorum eius dolorem corporis quasi blanditiis et dicta a totam omnis adipisci quas dolore impedit sequi. Eveniet neque fugit dolor saepe in quas? Fugiat doloremque est enim, nostrum ab eveniet nemo earum quod beatae soluta mollitia dolor perferendis nam repellendus placeat rem modi excepturi hic accusamus consectetur pariatur maxime? Magni itaque ipsam reprehenderit expedita libero magnam a voluptatum recusandae? Quam veritatis, sunt ipsum ex non excepturi aut quasi omnis odit veniam similique laborum eligendi beatae, ducimus est fuga repellat pariatur tempora. Veritatis ipsa tempore, laborum in delectus dolor ipsum earum harum corrupti ipsam ratione ab tenetur ad inventore? Minima dolor necessitatibus veritatis est sed blanditiis fuga facilis! Nulla voluptate adipisci tempore magni. Hic, quasi.</div>
+        <div class="footer grid-item">footer</div>
+    </div>
+</body>
+
+</html>
+
+<!-- 레이아웃에 이름을 정해서 그 이름대로 배치하는 모습 -->
